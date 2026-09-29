@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Site de Receitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+  </head>
+  <body style="display: none;">
+
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-receitas">
+    	<div class="container">
+		
+    	    <a class="navbar-brand" href="#">
+    	        🍴 Receitas da Maria
+    	    </a>
+		
+    	    <button 
+    	        class="navbar-toggler" 
+    	        type="button" 
+    	        data-bs-toggle="collapse" 
+    	        data-bs-target="#menuNavbar"
+    	        aria-controls="menuNavbar"
+    	        aria-expanded="false"
+    	        aria-label="Abrir menu">
+    	        <span class="navbar-toggler-icon"></span>
+    	    </button>
+		
+    	    <div class="collapse navbar-collapse" id="menuNavbar">
+    	        <ul class="navbar-nav ms-auto">
+				
+    	            <li class="nav-item">
+    	                <a class="nav-link" href="#formReceita">
+    	                    Cadastrar receita
+    	                </a>
+    	            </li>
+				
+    	            <li class="nav-item">
+    	                <a class="nav-link" href="#listaReceitas">
+    	                    Receitas
+    	                </a>
+    	            </li>
+				
+    	        </ul>
+    	    </div>
+
+			<button id="btnSair" class="btn btn-outline-light ms-3">
+				Sair
+			</button>
+		
+    	</div>
+	</nav>
+
+	<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    	<div id="toastReceita" class="toast" role="alert">
+        	<div class="toast-header">
+            	<strong class="me-auto">Receitas da Maria</strong>
+            	<button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        	</div>
+
+        	<div class="toast-body" id="mensagemToast">
+        	</div>
+    	</div>
+
+	</div>
+    
+    <div class="container">
+		
+		<section class="hero-receitas">
+
+    		<h1>🍴 Receitas da Maria</h1>
+
+   			<p>
+        		Encontre, cadastre e organize suas receitas favoritas
+        		em um só lugar.
+    		</p>
+
+    		<div class="contador-receitas">
+        		<strong id="totalReceitas">0</strong>
+        		<span>receitas cadastradas</span>
+    		</div>
+
+		</section>
+
+		<div class="card">
+			<div class="card-body">
+				
+				<h2 class="card-title">Cadastrar receita</h2>
+
+				<form id="formReceita">
+
+					<div class="mb-3">
+						<label for="nome" class="form-label">Nome da receita</label>
+						<input type="text" class="form-control" id="nome" required>
+					</div>
+
+					<div class="mb-3">
+						<label for="ingredientes" class="form-label">Ingredientes</label>
+						<textarea class="form-control" id="ingredientes" rows="5" required></textarea>
+					</div>
+
+					<div class="mb-3">
+						<label for="modoPreparo" class="form-label">Modo de preparo</label>
+						<textarea class="form-control" id="modoPreparo" rows="5" required></textarea>
+					</div>
+
+					<div class="mb-3">
+						<label for="tempoPreparo" class="form-label">Tempo de preparo (minutos)</label>
+						<input type="number" class="form-control" id="tempoPreparo" min="1" required>
+					</div>
+
+					<div class="mb-3">
+						<label for="rendimento" class="form-label">Rendimento (Porções/Unidades)</label>
+						<input type="number" class="form-control" id="rendimento" min="1" required>
+					</div>
+
+					<div class="mb-3">
+						<label for="categoria" class="form-label">Categoria</label>
+
+						<select class="form-select" id="categoria" required>
+							<option value="">Selecione uma categoria</option>
+							<option value="Massas">🍝 Massas</option>
+							<option value="Carnes">🍖 Carnes</option>
+							<option value="Sobremesas">🍰 Sobremesas</option>
+							<option value="Saladas">🥗 Saladas</option>
+							<option value="Bebidas">🍹 Bebidas</option>
+							<option value="Outros">🍲 Outros</option>
+						</select>
+					</div>
+
+					<button type="submit" class="btn btn-primary">
+						Cadastrar Receita
+					</button>
+
+				</form>
+
+				<hr class="my-5">
+
+				<h2>Receitas cadastradas</h2>
+
+				<div class="mb-4">
+    		
+				<input 
+        			type="text" 
+        			id="campoPesquisa" 
+        			class="form-control"
+        			placeholder="🔍 Pesquisar receita...">
+				</div>
+
+				<div class="mb-4">
+					<label for="filtroCategoria" class="form-label">
+						Filtrar por categoria
+					</label>
+
+					<select id="filtroCategoria" class="form-select">
+						<option value="Todas">Todas as categorias</option>
+						<option value="Massas">🍝 Massas</option>
+						<option value="Carnes">🍖 Carnes</option>
+						<option value="Sobremesas">🍰 Sobremesas</option>
+						<option value="Saladas">🥗 Saladas</option>
+						<option value="Bebidas">🍹 Bebidas</option>
+						<option value="Outros">🍲 Outros</option>
+					</select>
+				</div>
+
+				<div class="mb-4">
+					<label for="filtroFavorito" class="form-label">
+						Filtrar por favoritos
+					</label>
+
+					<select id="filtroFavorito" class="form-select">
+						<option value="Todas">Todas as receitas</option>
+						<option value="Favoritas">❤️ Apenas favoritas</option>
+						<option value="NaoFavoritas">🤍 Não favoritas</option>
+					</select>
+				</div>
+
+				<div id="listaReceitas" class="row mt-3">
+
+				</div>
+
+			</div>
+		</div>
+
+    </div>
+
+	<div class="modal fade" id="modalReceita" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalTitulo">
+						Receita
+					</h5>
+
+					<button 
+						type="button" 
+						class="btn-close" 
+						data-bs-dismiss="modal"
+						aria-label="Fechar">
+					</button>
+				</div>
+
+				<div class="modal-body">
+
+					<p>
+						<strong>Categoria:</strong>
+						<span id="modalCategoria"></span>
+					</p>
+
+					<h6>Ingredientes</h6>
+						<p id="modalIngredientes"></p>
+
+					<hr>
+
+					<h6>Modo de preparo</h6>
+						<p id="modalModoPreparo"></p>
+
+					<hr>
+
+					<p>
+						<strong>Tempo:</strong>
+						<span id="modalTempo"></span> minutos
+					</p>
+
+					<p>
+						<strong>Rendimento:</strong>
+						<span id="modalRendimento"></span>
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="auth.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

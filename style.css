@@ -1,0 +1,178 @@
+body {
+    background-color: #f8f5f0;
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+}
+
+h1 {
+    font-weight: 700;
+    color: #8b4513;
+    text-align: center;
+}
+
+h2 {
+    color: #8b4513;
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    color: #8b4513;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #c77b30;
+    box-shadow: 0 0 0 0.2rem rgba(199, 123, 48, 0.15);
+}
+
+.btn-primary {
+    background-color: #c77b30;
+    border-color: #c77b30;
+}
+
+.btn-primary:hover {
+    background-color: #a85f1c;
+    border-color: #a85f1c;
+}
+
+.btn-warning {
+    color: white;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid #e2d8cc;
+}
+
+.navbar-receitas {
+    background-color: #8b4513;
+    padding: 12px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.navbar-receitas .nav-link {
+    color: white;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.navbar-receitas .nav-link:hover {
+    color: #ffd8a8;
+}
+
+.hero-receitas {
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #8b4513, #c77b30);
+    color: white;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.hero-receitas h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-receitas p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.contador-receitas {
+    display: inline-flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 12px 30px;
+    border-radius: 15px;
+}
+
+.contador-receitas strong {
+    font-size: 2rem;
+}
+
+.contador-receitas span {
+    font-size: 0.9rem;
+}
+
+#modalReceita .modal-content {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+#modalReceita .modal-header {
+    background-color: #8b4513;
+    color: white;
+    border-bottom: none;
+}
+
+#modalReceita .modal-title {
+    font-weight: 600;
+}
+
+#modalReceita .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+#modalReceita .modal-body {
+    padding: 30px;
+    background-color: #f8f5f0;
+}
+
+#modalReceita .modal-body h6 {
+    color: #8b4513;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#modalReceita .modal-body p {
+    line-height: 1.7;
+}
+
+#modalReceita .modal-body hr {
+    margin: 25px 0;
+}
+
+#modalIngredientes,
+#modalModoPreparo {
+    white-space: pre-line;
+}
+
+#modalCategoria {
+    display: inline-block;
+    background-color: #f3dfc8;
+    color: #8b4513;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-left: 5px;
+}
